@@ -132,13 +132,15 @@ class BasicSkill {
 
     getLevel(){return this.level;}
     setLevel(_level){
-        
+
         if(_level > skillRankDetails[this.rank].maxLevel){
             this.level = this.level % skillRankDetails[this.rank].maxLevel
             this.setRank(this.rank + 1)
         } else{
             this.level = _level
         }
+
+        this.setTimesUsed(0)
     }
 
     getTimesUsed(){return this.timesUsedSinceLastLevel;}
